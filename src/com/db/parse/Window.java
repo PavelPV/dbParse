@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
@@ -87,7 +88,7 @@ public class Window extends JFrame implements ActionListener {
 		b_ChooseNewFile.addActionListener(this);
 		b_SaveFile.addActionListener(this);
 		
-//		this.add(panelN);
+		this.add(panelN);
 		this.setVisible(true);
 	}
 
@@ -122,12 +123,14 @@ public class Window extends JFrame implements ActionListener {
 				ta_Result.setText(builder.toString());
 		} else if (e.getSource() == b_ChooseNewFile) {
 			JFileChooser fileOpenNew = new JFileChooser();
+			fileOpenNew.setCurrentDirectory(new File("C:/Users/Andreas/Desktop"));
 			int approve = fileOpenNew.showDialog(null, "Open file");
 			if (approve==JFileChooser.APPROVE_OPTION) {
 				tf_ChooseNewFile.setText(fileOpenNew.getSelectedFile().getAbsolutePath().replace('\\', '/'));
 			}
 		} else if (e.getSource() == b_ChooseOldFile) {
 			JFileChooser fileOpenOld = new JFileChooser();
+			fileOpenOld.setCurrentDirectory(new File("C:/Users/Andreas/Desktop"));
 			int approve = fileOpenOld.showDialog(null, "Open file");
 			if (approve==JFileChooser.APPROVE_OPTION) {
 				tf_ChooseOldFile.setText(fileOpenOld.getSelectedFile().getAbsolutePath().replace('\\', '/'));
