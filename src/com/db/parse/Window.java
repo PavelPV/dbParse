@@ -138,6 +138,7 @@ public class Window extends JFrame implements ActionListener {
 		} else if (e.getSource() == b_SaveFile) {
 			if (!"".equals(ta_Result.getText())) {
 				JFileChooser fileSave = new JFileChooser();
+				fileSave.setCurrentDirectory(new File("C:/Users/Andreas/Desktop"));
 				int ret3 = fileSave.showSaveDialog(null);
 				if (ret3==JFileChooser.APPROVE_OPTION) {
 					try{						
